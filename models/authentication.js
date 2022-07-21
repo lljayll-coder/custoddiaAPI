@@ -9,6 +9,8 @@ const getAuthentication = async (req, res) => {
  
     let query = db.query(sql, (err, results) => {
 
+        console.log( results);
+        
         if (results.length>0) { //in case query returns no results
             let data = results[0];
 
