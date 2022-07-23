@@ -17,7 +17,7 @@ const getAuthentication = async (req, res) => {
             let token = jwt.sign({username: data.username, company: data.company, access: data.access}, 
                 process.env.JWT_SECRET, 
                 {expiresIn: process.env.JWT_LIFETIME})
-            
+                
                 if (data.username===req.body.username && data.password===req.body.password) {
                     res.status(StatusCodes.CREATED).json({msg: 'valid', token: token})
                 }

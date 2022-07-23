@@ -1,14 +1,13 @@
-import jwt from 'jsonwebtoken';
 
 const auth = async (req,res,next) => {
     
-    const authHeader = req.headers.authorization;
-    
-    try {
-        const token = authHeader.split(' ')[1]
+try {
 
+        const authHeader = req.headers.authorization;
+        const token = authHeader.split(' ')[1]
+        console.log(token)
         if (!authHeader || !authHeader.startsWith('Bearer')) {
-        console.log('not authorized')
+        res.send({msg: 'not authorized'})
         }
         
         next()

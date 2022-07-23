@@ -4,12 +4,14 @@ import tokenData from './tokenData.js';
 
 const writeFiles = async(req, res) => {
     
+    try {
+
     let company = await tokenData(req).company
 
     let post = await req.body;
     
     let sql = `INSERT INTO ${company} SET ?`;
-try {
+
     let query = db.query(sql, post, (err, result) => {
         if (err) {
             res.send(err.sqlMessage)
@@ -20,7 +22,7 @@ try {
     });
 
 } catch (error) {
-    console.log(error)
+    res.send(error)
 }
     
 }
