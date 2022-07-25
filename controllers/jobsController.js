@@ -1,13 +1,12 @@
 import { writeFiles } from "../models/writeFiles.js"
+import { getFiles } from "../models/getFiles.js"
 
 const createJob = async (req, res) => {
-    
         writeFiles(req, res)
-   
 }
 
 const getAllJobs = async (req, res) => {
-    res.send('get all jobs')
+        getFiles(req, res)
 }
 
 const updateJob = async (req, res) => {
