@@ -3,14 +3,14 @@ import { StatusCodes } from "http-status-codes";
 import tokenData from './tokenData.js';
 
 const getFiles = async(req, res) => {
-    
+
     try {
         
     let company = await tokenData(req).company
-        
+    
     let get = await req.body.searchParameter;
 
-    let sql = `SELECT * FROM ${company} WHERE first_name LIKE '%${get}%' OR last_name LIKE '%${get}%' OR phone LIKE '%${get}%'`;
+    let sql = `SELECT * FROM ${company} WHERE first_name LIKE '%${get}%' OR last_name LIKE '%${get}%' OR phone LIKE '%${get}%' OR id = '${get}'`;
     
     let query = db.query(sql, (err, result) => {
     
@@ -25,6 +25,7 @@ const getFiles = async(req, res) => {
 
 } catch (error) {
     res.send(error)
+    
 }
     
 }
