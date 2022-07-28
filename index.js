@@ -4,7 +4,6 @@ import db from './db/connect.js'
 import authRouter from './routes/authRoutes.js'
 import jobsRouter from './routes/jobsRoutes.js'
 import 'express-async-errors';
-import login from './controllers/authController.js';
 
 import notFoundMiddleware from './middleware/not-found.js'
 import errorHandleMiddleware from "./middleware/error-handler.js";
@@ -27,13 +26,7 @@ app.get('/api/v1', (req,res) => {
     res.send({msg: 'API CONNECTED'})
 })
 
-app.post('/login', (req,res,next) => {
-
-login(req,res,next)
-
-});
-
-//app.use('/api/v1/auth', authRouter)
+app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/jobs',authenticateUser, jobsRouter)
 
 app.use(notFoundMiddleware)
