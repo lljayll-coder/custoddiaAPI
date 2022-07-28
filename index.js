@@ -27,7 +27,7 @@ app.get('/api/v1', (req,res) => {
     res.send({msg: 'API CONNECTED'})
 })
 
-app.post('/login', (req,res,next) => {
+app.get('/login', (req,res,next) => {
 
 login(req,res,next)
 
