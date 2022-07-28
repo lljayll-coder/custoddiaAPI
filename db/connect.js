@@ -1,11 +1,11 @@
 import mysql from 'mysql';
 
 const db = mysql.createConnection({
-    host: 'localhost',
-    port: 3307,
-    user: 'jason',
+    host: 'db-mysql-tor-custoddia-do-user-8358132-0.b.db.ondigitalocean.com',
+    port: 25060,
+    user: 'jasonm',
     password: 'mvb93ECF#',
-    database: 'custoddia',
+    database: 'custoddia'
 });
 
 export default db
