@@ -32,7 +32,7 @@ app.use('/api/v1/jobs',authenticateUser, jobsRouter)
 app.use(notFoundMiddleware)
 app.use(errorHandleMiddleware)
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
 
 const start  = () => {
 
