@@ -17,7 +17,7 @@ const getAuthentication = async (req, res) => {
                 {expiresIn: process.env.JWT_LIFETIME})
                 
                 if (data.username===req.body.username && data.password===req.body.password) {
-                    res.status(StatusCodes.CREATED).json({msg: 'valid', token: token})
+                    res.status(StatusCodes.CREATED).json({msg: 'valid', token: token, access: data.access})
                 }
                 else {
                     res.status(StatusCodes.CREATED).json({msg: 'invalid'})
